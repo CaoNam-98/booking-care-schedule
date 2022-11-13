@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+// Package switch language
 import { IntlProvider } from "react-intl";
 
 import '@formatjs/intl-pluralrules/polyfill';
