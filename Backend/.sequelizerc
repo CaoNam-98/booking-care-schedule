@@ -1,0 +1,11 @@
+const path = require('path');
+
+module.exports = {
+    // How to connect to database
+    'config': path.resolve('./src/config', 'config.json'),
+    // create table in database
+    'migrations-path': path.resolve('./src', 'migrations'),
+    'models-path': path.resolve('./src', 'models'),
+    // seeders: create fake data
+    'seeders-path': path.resolve('./src', 'seeders')
+}
