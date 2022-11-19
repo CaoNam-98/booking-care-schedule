@@ -2,12 +2,14 @@ import express from "express";
 import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
 import initWebRoutes from './route/web';
+import cors from 'cors';
 import connectDB from './config/connectDB';
 // gọi đến hàm config() của thư viện dotenv
 require('dotenv').config();
 
 // query param: /user?id=7 => để lấy được id=7 thì ta phải dùng body-parser
 let app = express();
+app.use(cors({ origin: true, credentials: true }));
 
 // config app
 app.use(bodyParser.json())
