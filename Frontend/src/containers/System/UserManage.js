@@ -3,12 +3,14 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserManage.scss";
 import { getAllUsers } from "./../../services/userService";
+import ModalUser from "./ModalUser";
 class UserManage extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
     this.state = {
       arrUsers: [],
+      isOpenModelUser: false,
     };
   }
 
@@ -33,12 +35,29 @@ class UserManage extends Component {
     }
   }
 
+  handleAddNewUser = () => {
+    this.setState({
+      isOpenModelUser: true,
+    })
+  }
+
   // use react table to render table
   render() {
     let arrUsers = this.state.arrUsers;
+    // properties, nested
     return (
       <div className="users-container mt-3 mx-1">
+        <ModalUser
+          isOpen={this.state.isOpenModelUser}
+          test={'abc'}
+        />
         <div className="title text-center">Management Users With Eric</div>
+        <div className="my-3">
+          <button className="btn btn-primary px-3" onClick={() => this.handleAddNewUser()}>
+            <i className="fas fa-plus"></i>
+            Add new users
+          </button>
+        </div>
         <table id="customers">
           <tr>
             <th>Email</th>
